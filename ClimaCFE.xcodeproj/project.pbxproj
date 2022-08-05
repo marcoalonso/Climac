@@ -13,6 +13,9 @@
 		60640791289DAD1400B8DACC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6064078F289DAD1400B8DACC /* Main.storyboard */; };
 		60640793289DAD1700B8DACC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 60640792289DAD1700B8DACC /* Assets.xcassets */; };
 		60640796289DAD1700B8DACC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 60640794289DAD1700B8DACC /* LaunchScreen.storyboard */; };
+		606407A1289DB24500B8DACC /* ClimaData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 606407A0289DB24500B8DACC /* ClimaData.swift */; };
+		606407A3289DB25700B8DACC /* ClimaModelo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 606407A2289DB25700B8DACC /* ClimaModelo.swift */; };
+		606407A5289DB26400B8DACC /* ClimaManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 606407A4289DB26400B8DACC /* ClimaManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +27,9 @@
 		60640792289DAD1700B8DACC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		60640795289DAD1700B8DACC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		60640797289DAD1700B8DACC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		606407A0289DB24500B8DACC /* ClimaData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClimaData.swift; sourceTree = "<group>"; };
+		606407A2289DB25700B8DACC /* ClimaModelo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClimaModelo.swift; sourceTree = "<group>"; };
+		606407A4289DB26400B8DACC /* ClimaManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClimaManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +62,42 @@
 		60640788289DAD1400B8DACC /* ClimaCFE */ = {
 			isa = PBXGroup;
 			children = (
+				6064079F289DB1EF00B8DACC /* Controlador */,
+				6064079E289DB1E400B8DACC /* Vista */,
+				6064079D289DB1DF00B8DACC /* Modelo */,
 				60640789289DAD1400B8DACC /* AppDelegate.swift */,
 				6064078B289DAD1400B8DACC /* SceneDelegate.swift */,
-				6064078D289DAD1400B8DACC /* ViewController.swift */,
-				6064078F289DAD1400B8DACC /* Main.storyboard */,
 				60640792289DAD1700B8DACC /* Assets.xcassets */,
 				60640794289DAD1700B8DACC /* LaunchScreen.storyboard */,
 				60640797289DAD1700B8DACC /* Info.plist */,
 			);
 			path = ClimaCFE;
+			sourceTree = "<group>";
+		};
+		6064079D289DB1DF00B8DACC /* Modelo */ = {
+			isa = PBXGroup;
+			children = (
+				606407A0289DB24500B8DACC /* ClimaData.swift */,
+				606407A2289DB25700B8DACC /* ClimaModelo.swift */,
+				606407A4289DB26400B8DACC /* ClimaManager.swift */,
+			);
+			path = Modelo;
+			sourceTree = "<group>";
+		};
+		6064079E289DB1E400B8DACC /* Vista */ = {
+			isa = PBXGroup;
+			children = (
+				6064078F289DAD1400B8DACC /* Main.storyboard */,
+			);
+			path = Vista;
+			sourceTree = "<group>";
+		};
+		6064079F289DB1EF00B8DACC /* Controlador */ = {
+			isa = PBXGroup;
+			children = (
+				6064078D289DAD1400B8DACC /* ViewController.swift */,
+			);
+			path = Controlador;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -139,7 +172,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				6064078E289DAD1400B8DACC /* ViewController.swift in Sources */,
+				606407A3289DB25700B8DACC /* ClimaModelo.swift in Sources */,
 				6064078A289DAD1400B8DACC /* AppDelegate.swift in Sources */,
+				606407A1289DB24500B8DACC /* ClimaData.swift in Sources */,
+				606407A5289DB26400B8DACC /* ClimaManager.swift in Sources */,
 				6064078C289DAD1400B8DACC /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

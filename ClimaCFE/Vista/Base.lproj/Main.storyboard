@@ -26,6 +26,9 @@
                                 <buttonConfiguration key="configuration" style="plain">
                                     <backgroundConfiguration key="background" image="ubicacion"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="GPSButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="xjG-aM-1Aj"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6jr-9n-a5T">
                                 <rect key="frame" x="351" y="58" width="43" height="44"/>
@@ -34,6 +37,9 @@
                                 <buttonConfiguration key="configuration" style="plain">
                                     <backgroundConfiguration key="background" image="buscar"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="BuscarButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cbw-eQ-MHe"/>
+                                </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Escribir el nombre de una ciudad" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gYE-8f-jJ2">
                                 <rect key="frame" x="95" y="68" width="224" height="34"/>
@@ -70,6 +76,13 @@
                             <constraint firstItem="RX4-lg-e80" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="H4l-Dt-KKb"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="buscarCiudadTextField" destination="gYE-8f-jJ2" id="MSj-kD-i4O"/>
+                        <outlet property="climaImageView" destination="Khp-zP-VE4" id="Cw5-mb-WQK"/>
+                        <outlet property="descripcionClimalLabel" destination="SSp-rb-Eq5" id="i99-nA-IrG"/>
+                        <outlet property="fondoClimaImageView" destination="RX4-lg-e80" id="7Qe-af-S4v"/>
+                        <outlet property="temperaturaLabel" destination="anZ-Xs-e9z" id="j2A-R7-vkx"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
