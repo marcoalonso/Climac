@@ -29,8 +29,59 @@ struct ClimaManager {
     func realizarSolicitud(url: String){
         //Proceso de networking
         // 1.- Crear un objeto URL
-        // 2.- Crear una sesion
-        // 3.- Asignar una tarea a la sesion
-        // 4.- Comezar la tarea
+        if let url = URL(string: url){
+            
+            // 2.- Crear una sesion
+            let session = URLSession(configuration: .default)
+            
+            // 3.- Asignar una tarea a la sesion
+            let tarea = session.dataTask(with: url) { data, respuesta, error in
+                
+                if let res = respuesta {
+                    print(res)
+                }
+                
+                //si hubio un error
+                if error != nil {
+                    print("Error en la tarea: ",error!.localizedDescription)
+                    
+                    return
+                }
+                //desenvolver ese valor opcional
+                if let datosSeguros = data {
+                    if let clima = self.parseJSON(climaData: datosSeguros){
+                        delegado?.actualizarClima(clima: clima)
+                    }
+                }
+            }
+            // 4.- Comezar la tarea
+            tarea.resume()
+        }
     }
+    
+    func parseJSON(climaData: Data) -> ClimaModelo? {
+        let decoder = JSONDecoder()
+        
+        do{
+            let dataDecodificada = try decoder.decode(ClimaData.self, from: climaData)
+            //Crear un objeto a partir del ClimaModelo
+            let id = dataDecodificada.weather[0].id
+            let nombre = dataDecodificada.name
+            let descripcion = dataDecodificada.weather[0].description
+            let temp = dataDecodificada.main.temp
+            
+            //el obj que vamos a mandar al VC
+            let objClima = ClimaModelo(condicionID: id, nombreCiudad: nombre, descripcionClima: descripcion, temperaturaCelcius: temp)
+            
+            return objClima
+            
+        }catch {
+            print("Error al decodificar: \(error.localizedDescription)")
+            delegado?.huboError(cualError: error)
+            return nil
+        }
+    }
+    
+    
+    
 }
