@@ -28,14 +28,10 @@ class ViewController: UIViewController, ClimaManagerDelegate {
         climaManager.delegado = self
         buscarCiudadTextField.delegate = self
         
-        //locationManager.delegate = self
+        locationManager.delegate = self
         
         //Solicitar el permiso
         locationManager.requestWhenInUseAuthorization()
-        
-        //Acceder a la ubicacion
-//        locationManager.requestLocation()
-        
         
     }
 
@@ -70,9 +66,51 @@ class ViewController: UIViewController, ClimaManagerDelegate {
 
 // MARK: - GPS
 extension ViewController: CLLocationManagerDelegate {
+    
+    //Se ejecuntan despues de locationManager.requestLocation()
+    //Cuando se obtuvo la ubicacion
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         print("Se detectó la ubicacion del usuario")
+        if let ubicacion = locations.last {
+            print("Ubicacion: \(ubicacion)")
+            
+            let latitud = ubicacion.coordinate.latitude
+            let longitd = ubicacion.coordinate.longitude
+            
+            print(latitud)
+            print(longitd)
+        }
+        
     }
+    
+    
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        print("No se obtuvo la ubicacion del usuario")
+    }
+    
+    //cada vez que cambian los permisos
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        switch status {
+        case .notDetermined:
+            print("notDetermined")
+        case .restricted:
+            print("restricted")
+        case .denied:
+            print("denied")
+        case .authorizedAlways:
+            print("authorizedAlways")
+        case .authorizedWhenInUse:
+            print("authorizedWhenInUse")
+            //Acceder a la ubicacion
+            locationManager.requestLocation()
+        case .authorized:
+            print("authorized")
+        @unknown default:
+            fatalError("Error desconocido :/")
+        }
+    }
+    
+    
 }
 
 // MARK: - Protocolo UITextViewDelegate

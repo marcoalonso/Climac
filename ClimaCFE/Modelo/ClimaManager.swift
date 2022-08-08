@@ -25,6 +25,12 @@ struct ClimaManager {
         realizarSolicitud(url: urlString)
     }
     
+    func fetchClima(lat: Double, lon: Double){
+        let urlString = "\(climaURL)&lat=\(lat)&lon=\(lon)"
+        
+        realizarSolicitud(url: urlString)
+    }
+    
     //hara todo el proceso de decodificacion de la API
     func realizarSolicitud(url: String){
         //Proceso de networking
