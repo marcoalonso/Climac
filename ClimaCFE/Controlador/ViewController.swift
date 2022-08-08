@@ -52,7 +52,8 @@ class ViewController: UIViewController, ClimaManagerDelegate {
     }
     
     @IBAction func GPSButton(_ sender: UIButton) {
-        
+        //Acceder a la ubicacion
+        locationManager.requestLocation()
     }
     
     @IBAction func BuscarButton(_ sender: UIButton) {
@@ -79,6 +80,7 @@ extension ViewController: CLLocationManagerDelegate {
             
             print(latitud)
             print(longitd)
+            climaManager.fetchClima(lat: latitud, lon: longitd)
         }
         
     }
